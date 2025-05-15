@@ -15,3 +15,10 @@ class OperatorCatalog:
 
     def check(self, symbol):
         return symbol in self.operatorss
+    
+DEFAULT_OPERATORS = {
+    '+': operator.add,
+    '-': operator.sub,
+    '*': operator.mul,
+    '/': operator.truediv,
+}
