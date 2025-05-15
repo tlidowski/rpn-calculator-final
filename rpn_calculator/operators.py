@@ -22,3 +22,7 @@ DEFAULT_OPERATORS = {
     '*': operator.mul,
     '/': operator.truediv,
 }
+
+catalog = OperatorCatalog()
+for symbol, func in DEFAULT_OPERATORS.items():
+    catalog.add(symbol, func)
