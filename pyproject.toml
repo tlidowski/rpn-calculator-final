@@ -9,5 +9,8 @@ description = "RPN calculator"
 authors = [{ name = "Tia Lidowski", email = "tiallidowski@gmail.com" }]
 dependencies = []
 
+[project.optional-dependencies]
+test = ["pytest"]
+
 [project.scripts]
 rpn = "rpn_calculator.rpn_main:run_cli"
