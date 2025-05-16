@@ -15,15 +15,19 @@ class RPNCalculator:
             if self.catalog.check(item):
                 if len(self.stack) < 2:
                     raise ValueError("Insufficient values in stack.")
-                second = self.stack.pop()
-                first = self.stack.pop()
+                
+                second = self.stack[-1]
+                first = self.stack[-2]
                 
                 try: 
                     result = self.catalog.get(item)(first, second)
                 except ZeroDivisionError:
                     raise ZeroDivisionError("Division by zero is not allowed.")
                 
+                self.stack.pop()
+                self.stack.pop()
                 self.stack.append(result)
+                
             else:
                 try:
                     self.stack.append(float(item))
