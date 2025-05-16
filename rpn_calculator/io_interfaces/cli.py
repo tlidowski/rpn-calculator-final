@@ -10,16 +10,20 @@ class CLICalculator:
         self.calc = RPNCalculator(catalog)
     
     def start_cli(self):
-        self.print_intro()
+        try:
+            self.print_intro()
+        except Exception as e:
+            print(f"Error: {e}")
     
     def print_intro(self):
+        supported_ops = " ".join(i for i in self.calc.catalog.operators)
         print("- " * 30)
         print(
             "Welcome to the RPN CLI Calculator!\n\n",
             "INSTRUCTIONS:",
             "Enter values followed by an operator (e.g., `3 4 +`).\n",
             "You can input one at a time or multiple space-separated per line.\n",
-            "Current operations suppoorted: " + " ".join(i for i in self.calc.catalog.operators) + "\n\n",
+            f"Current operations supported: {supported_ops}\n\n",
             "Press 'q' or Ctrl+D to exit.\n"
         )
         print("- " * 30)
