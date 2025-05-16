@@ -14,7 +14,7 @@ class OperatorCatalog:
         return self.operators.get(symbol)
 
     def check(self, symbol):
-        return symbol in self.operatorss
+        return symbol in self.operators
     
 DEFAULT_OPERATORS = {
     '+': operator.add,

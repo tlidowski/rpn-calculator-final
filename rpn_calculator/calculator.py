@@ -12,7 +12,7 @@ class RPNCalculator:
         items = line.strip().split()
 
         for item in items:
-            if self.catalog.contains(item):
+            if self.catalog.check(item):
                 second = self.stack.pop()
                 first = self.stack.pop()
                 result = self.catalog.get(item)(first, second)
