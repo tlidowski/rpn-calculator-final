@@ -22,17 +22,16 @@ class CLICalculator:
     
     def run_calc(self):
         while True:
+            num_input = input("> ")
+            if num_input.strip().lower() == "q":
+                self.handle_exit("Closing RPN Calculator...")
+                exit()
+
             try:
-                num_input = input("> ")
-                if num_input.strip().lower() == "q":
-                    self.handle_exit("Closing RPN Calculator...")
-                    exit()
                 result = self.calc.evaluate(num_input)
                 print(f"= {result}")
-            except ValueError as ve:
-                self.handle_exit(f"Input error: {ve}")
-            except ZeroDivisionError:
-                self.handle_exit("Math error: Division by zero is not allowed.")
+            except Exception as e:
+                print(f"Error: {e}")
     
     def print_intro(self):
         supported_ops = " ".join(i for i in self.calc.catalog.operators)
@@ -49,3 +48,4 @@ class CLICalculator:
 
     def handle_exit(self, message):
         print(f"\n{message}")
+        exit()
