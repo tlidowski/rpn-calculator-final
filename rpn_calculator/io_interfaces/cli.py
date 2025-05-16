@@ -12,6 +12,13 @@ class CLICalculator:
     def start_cli(self):
         try:
             self.print_intro()
+            while True: 
+                num_input = input("> ")
+                if num_input.strip().lower() in ('q'):
+                    print("Closing RPN Calculator...")
+                    break
+                result = self.calc.evaluate(num_input)
+                print(f"= {result}")
         except Exception as e:
             print(f"Error: {e}")
     
